@@ -1,0 +1,35 @@
+{
+  "name": "restapi",
+  "version": "1.0.0",
+  "description": "REST API with Node JS, Express JS &amp; Mongo DB",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hesing/restapi.git"
+  },
+  "keywords": [
+    "node js",
+    "mongo db",
+    "rest",
+    "express js"
+  ],
+  "author": "Hemant",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hesing/restapi/issues"
+  },
+  "homepage": "https://github.com/hesing/restapi#readme",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "cors": "^2.7.1",
+    "express": "^4.13.3",
+    "mongoose": "^4.1.9"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "nodemon": "^1.7.1"
+  }
+}
