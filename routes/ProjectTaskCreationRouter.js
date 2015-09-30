@@ -25,6 +25,7 @@ module.exports = function(){
 		// 	});
 		// })
 		.post(function(req, res){
+			req.body.createdBy = "560bda9eb80914642b3a29c9";
 			var dbInstance = new ProjectTaskCreation(req.body);
 
 			dbInstance.save(function(err, dbInstance){
@@ -65,6 +66,19 @@ module.exports = function(){
 				}
 			});
 		});
+
+	ProjectTaskCreationRouter.route("/:id/edit")
+		.get(function(req, res){
+			ProjectTaskCreation.findOne({_id: req.params.id})
+				.populate('createdBy')
+				.exec(function(err, records){
+					if(err){
+						res.status(500).send(err);
+					} else {
+						res.json(records);
+					}
+				});
+		});	
 
 
 	return ProjectTaskCreationRouter;

@@ -19,11 +19,17 @@ app.get("/", function(req, res){
 	res.send({message: "Welcome Simplify"});
 });
 
+var UserRouter = require("./routes/UserRouter")();
+app.use("/User", UserRouter);
+
 var GetPrimaryProductRouter = require("./routes/GetPrimaryProductRouter")();
 app.use("/GetPrimaryProduct", GetPrimaryProductRouter);
 
 var ProjectTaskCreationRouter = require("./routes/ProjectTaskCreationRouter")();
 app.use("/ProjectTaskCreation", ProjectTaskCreationRouter);
+
+var newstretchcodeRouter = require("./routes/newstretchcodeRouter")();
+app.use("/newstretchcode", newstretchcodeRouter);
 
 app.listen(port, function(){
 	console.log("browse http://localhost:"+ port);
