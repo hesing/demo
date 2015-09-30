@@ -10,7 +10,7 @@ module.exports = function(){
 				if(err){
 					res.status(500).send(err);
 				} else {
-					res.json(records.length ? records[0]: {});
+					res.json(records);
 				}
 			});
 		})
@@ -25,29 +25,13 @@ module.exports = function(){
 		// 	});
 		// })
 		.post(function(req, res){
-			newstretchcode.count(function (err, count){ 
-			    if(!count){
-					var dbInstance = new newstretchcode(req.body);
+			var dbInstance = new newstretchcode(req.body);
 
-					dbInstance.save(function(err, dbInstance){
-						if(err){
-							res.status(500).send(err);
-						} else {
-							res.status(201).json(dbInstance);
-						}
-					});
-			    } else {
-			    	res.send("Already Exists");
-			    }
-			}); 
-
-		})
-		.put(function(req, res){
-			newstretchcode.findByIdAndUpdate(req.body._id, req.body, function(err, record) {
+			dbInstance.save(function(err, dbInstance){
 				if(err){
 					res.status(500).send(err);
 				} else {
-					res.json(record);
+					res.status(201).json(dbInstance);
 				}
 			});
 		});
